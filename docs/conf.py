@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# core documentation build configuration file, created by
+# pycnic documentation build configuration file, created by
 # sphinx-quickstart on Mon Apr 16 21:22:43 2012.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -41,7 +41,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'core'
+project = u'pycnic'
 copyright = u'2012, Odelin Charron'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -184,7 +184,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-    ('index', 'core.tex', u'core Documentation',
+    ('index', 'pycnic.tex', u'pycnic Documentation',
      u'Odelin Charron', 'manual'),
 ]
 
@@ -214,7 +214,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'core', u'core Documentation',
+    ('index', 'pycnic', u'pycnic Documentation',
      [u'Odelin Charron'], 1)
 ]
 
@@ -228,8 +228,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'core', u'core Documentation',
-     u'Odelin Charron', 'core', 'One line description of project.',
+    ('index', 'pycnic', u'pycnic Documentation',
+     u'Odelin Charron', 'pycnic', 'One line description of project.',
      'Miscellaneous'),
 ]
 

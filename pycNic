@@ -2,7 +2,7 @@
 
 import argparse
 import sys
-from core import pycNic
+from pycnic import pycNic
 
 sys.setrecursionlimit(20000)
 
