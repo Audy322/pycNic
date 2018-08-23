@@ -13,7 +13,7 @@ setup(
     version='0.0.1',
     description='Automated quiz for mri images',
     long_description=readme,
-    author='Odelin Charron',
+    author='Odelin Charron, Vincent Noblet',
     author_email='audy322@hotmail.fr',
     url='https://github.com/OdelinCharron/core',
     license=license,

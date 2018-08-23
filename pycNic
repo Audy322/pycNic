@@ -2,21 +2,18 @@
 
 import argparse
 import sys
-import pycNic
+from core import pycNic
 
 sys.setrecursionlimit(20000)
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("fileLog", default="", nargs="?",
-                    help="file is the filename of the log")
-
-parser.add_argument("--c", help="create the quiz",
-                    action="store_true")
-
+parser.add_argument("fileCfg", help="Filename of the cfg file")
 
 #################################################
 #                        MAIN                   #
 #################################################
 if __name__ == '__main__':
-    pass
+    args = parser.parse_args()
+    fileCfg = args.fileCfg
+    pycNic.run(fileCfg)
