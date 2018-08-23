@@ -2,11 +2,11 @@
 from setuptools import setup, find_packages
 
 
-with open('README.rst') as f:
+with open('README.md') as f:
     readme = f.read()
 
 with open('LICENSE') as f:
-    license = f.read()
+    license0 = f.read()
 
 setup(
     name='core',
@@ -16,6 +16,6 @@ setup(
     author='Odelin Charron, Vincent Noblet',
     author_email='audy322@hotmail.fr',
     url='https://github.com/OdelinCharron/core',
-    license=license,
+    license=license0,
     packages=find_packages(exclude=('tests', 'docs', 'examples'))
 )
