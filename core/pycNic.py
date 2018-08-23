@@ -62,7 +62,6 @@ def run(cfgFile):
     NameOfTheSegmentationFile = getAsString(
         config, "NameOfTheSegmentationFile")
 
-    print csvFilename
     #=========================================================================
     # Overwrite checking
     #=========================================================================
