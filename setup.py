@@ -17,5 +17,6 @@ setup(
     author_email='audy322@hotmail.fr',
     url='https://github.com/OdelinCharron/core',
     license=license0,
-    packages=find_packages(exclude=('tests', 'docs', 'examples'))
+    packages=find_packages(exclude=('tests', 'docs', 'examples')),
+    scripts=['pycNic']
 )
