@@ -38,6 +38,15 @@ def getAsString(config, Name, section="root"):
         return None
 
 
+def getAsPath(config, Name, section="root"):
+    try:
+        str0 = config.get(section, Name)[1:-1]
+        str0 = os.path.abspath(str0)
+        return str0
+    except:
+        return None
+
+
 def run(cfgFile):
     '''
 
@@ -52,9 +61,11 @@ def run(cfgFile):
     config = ConfigParser.RawConfigParser()
     config.readfp(ini_fp)
 
+    UseLikertScale = getAsBool(config, "UseLikertScale")
     Overwrite = getAsBool(config, "Overwrite")
+    AlwaysReady = getAsBool(config, "AlwaysReady")
     listOfQuestions = getAsList(config, "listOfQuestions")
-    dirOfImages = getAsString(config, "dirOfImages")
+    dirOfImages = getAsPath(config, "dirOfImages")
     listNameOfTheOtherImages = getAsList(config, "listNameOfTheOtherImages")
     Viewer = getAsString(config, "Viewer")
     csvFilename = getAsString(config, "csvFilename")
@@ -94,26 +105,35 @@ def run(cfgFile):
     #=========================================================================
     if CreateCSVQuiz:
         print "Finding files..."
+        print 4 * " ", "dirOfImages : ", dirOfImages
+        print 4 * " ", "nameMainImage : ", nameMainImage
         X_mainImage = Utilities.Find_Name(dirOfImages, nameMainImage)
         if type(X_mainImage) != list:
             X_mainImage = [X_mainImage]
 
         print "Creating the quiz"
+        print 4 * " ", "csvFilename : ", csvFilename
+        print 4 * " ", "Working directory : ", os.getcwd()
         MRI_viewing.createCsvQuizz(csvFilename,
                                    X_mainImage,
                                    listOfQuestions)
 
-    print("Starting the quiz...")
+    print(4 * "*", "Starting the quiz", 4 * "*")
+    print 4 * " ", "Working directory : ", os.getcwd()
+    print("")
     MRI_viewing.fillCsvFile(csvFilename,
                             range(2, len(listOfQuestions) + 2),
                             Viewer=Viewer,
+                            UseLikertScale=UseLikertScale,
+                            AlwaysReady=AlwaysReady,
                             ListNameOfTheOtherMRI=listNameOfTheOtherImages,
                             NameOfTheSegmentationMRI=NameOfTheSegmentationFile)
 
-    print("End of the quiz.")
+    print(4 * "*", "End of the quiz", 4 * "*")
 
 
 if __name__ == '__main__':
     print __doc__
-    exampleCfgFile = "../examples/cfg_pycNic_example.cfg"
+    os.chdir("../examples/")
+    exampleCfgFile = "cfg_pycNic_example.cfg"
     run(exampleCfgFile)
