@@ -72,6 +72,7 @@ def run(cfgFile):
     nameMainImage = getAsString(config, "nameMainImage")
     NameOfTheSegmentationFile = getAsString(
         config, "NameOfTheSegmentationFile")
+    RandomOrder = getAsBool(config, "RandomOrder")
 
     #=========================================================================
     # Overwrite checking
@@ -118,7 +119,7 @@ def run(cfgFile):
                                    X_mainImage,
                                    listOfQuestions)
 
-    print(4 * "*", "Starting the quiz", 4 * "*")
+    print(4 * "*" + "Starting the quiz" + 4 * "*")
     print 4 * " ", "Working directory : ", os.getcwd()
     print("")
     MRI_viewing.fillCsvFile(csvFilename,
@@ -127,7 +128,8 @@ def run(cfgFile):
                             UseLikertScale=UseLikertScale,
                             AlwaysReady=AlwaysReady,
                             ListNameOfTheOtherMRI=listNameOfTheOtherImages,
-                            NameOfTheSegmentationMRI=NameOfTheSegmentationFile)
+                            NameOfTheSegmentationMRI=NameOfTheSegmentationFile,
+                            RandomOrder=RandomOrder)
 
     print(4 * "*", "End of the quiz", 4 * "*")
 
